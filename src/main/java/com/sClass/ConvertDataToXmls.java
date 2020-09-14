@@ -49,11 +49,10 @@ public class ConvertDataToXmls {
 		try {
 			List<Map> res = findDbData(souse);
 			ZipOutputStream zipOut = new ZipOutputStream(new FileOutputStream(dest));
-			DataOutputStream dataOutputStream = null;
+			ZipEntry entry = new ZipEntry(nameXml);
+			zipOut.putNextEntry(entry);
+			DataOutputStream dataOutputStream = new DataOutputStream(zipOut);
 			for(int i = 0;i<res.size();i++){
-				ZipEntry entry = new ZipEntry(nameXml);
-				zipOut.putNextEntry(entry);
-				 dataOutputStream= new DataOutputStream(zipOut);
 				dataOutputStream.write(res.get(i).toString().getBytes());
 
 			}
