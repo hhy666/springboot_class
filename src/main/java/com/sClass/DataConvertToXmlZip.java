@@ -54,7 +54,7 @@ public class DataConvertToXmlZip {
 		
 		// 此处模拟数据 因为不知道数据格式是啥样子的
 		// 安装海运传输的xml格式模拟数据
-		for (int i = 0; i < 500000; i++) {
+		for (int i = 0; i < 10000; i++) {
 			// 数据库查出来的一条数据
 			List<Object> rut = new ArrayList<Object>();
 			
@@ -322,7 +322,7 @@ public class DataConvertToXmlZip {
 	}
 
 	public static void main(String[] args) {
-		DataConvertToXmlZip.dataToZip("F:/工作内容/海关数据对接/测试报文样例/海运预配主要报文.xml", "F:/hgcsbw/OutBox");
+		DataConvertToXmlZip.dataToZip("E:/erlOrRabbitmq/1/海运预配主要报文.xml", "E:/erlOrRabbitmq/ZipBox");
 //		ZipUtils.delDirFiles("F:/hgcsbw/OutBox");
 	}
 }
