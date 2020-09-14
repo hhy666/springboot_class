@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.ClazzDao">
+    <resultMap id="clazzMap" type="Clazz">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <association property="tag" javaType="Tag">
+            <id column="tid" property="id"/>
+            <result column="tname" property="name"/>
+        </association>
+    </resultMap>
+    <select id="findAll" resultMap="clazzMap">
+        select c.id,c.name,t.id tid,t.name tname from clazz c left join tag t on c.tag_id = t.id
+    </select>
+    <insert id="save" parameterType="Clazz">
+        insert into clazz values(#{id},#{name},#{tag.id})
+    </insert>
+</mapper>
